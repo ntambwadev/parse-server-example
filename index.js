@@ -12,11 +12,11 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  databaseURI: databaseUri || 'mongodb://docwhere:docwhere123@ds021712-a0.mlab.com:21712,ds021712-a1.mlab.com:21712/docwhereiosapp?replicaSet=rs-ds021712',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'myAppId',
-  masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+  appId: process.env.APP_ID || 'oMVo1jEWRESQK5KOytehjyHsyIrVMP6DPt2IEhDv',
+  masterKey: process.env.MASTER_KEY || 'k9lsALW9y8KBUAXQzVOeHkfjo9JzP3VMC5UO57Is', //Add your master key here. Keep it secret!
+  serverURL: process.env.SERVER_URL || 'docwhereiosapp.herokuapp.com',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
