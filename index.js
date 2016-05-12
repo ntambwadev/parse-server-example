@@ -20,14 +20,14 @@ var api = new ParseServer({
   javascriptKey: process.env.JAVASCRIPT_KEY || '7bMusI2dAZ1hPJ8CzBdurpTOReWjk69vUXMZIW0w',  //** add this line no need to set values, they will be overwritten by heroku config vars
   // restAPIKey: process.env.REST_API_KEY || 'lKd6H8xoc49vIOwOTbR0eNX7Tyl9YihUmtbCFUgk', //** add this line
   // dotNetKey: process.env.DOT_NET_KEY || 'Nfop797wXab3EIFAA51WwRwUV0mgYIN9m5SVJ8KL', //** add this line
-  clientKey: process.env.CLIENT_KEY || 'dGv1bVJTz0OIsP1BtFvVoZfFh1EMvUIJS7ohcMWx', //** add this line
+  clientKey: process.env.CLIENT_KEY || 'dGv1bVJTz0OIsP1BtFvVoZfFh1EMvUIJS7ohcMWx' //** add this line
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
 var app = express();
-app.use(cors()); 
+// app.use(cors()); 
 
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
