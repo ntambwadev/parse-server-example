@@ -17,7 +17,7 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'oMVo1jEWRESQK5KOytehjyHsyIrVMP6DPt2IEhDv',
   masterKey: process.env.MASTER_KEY || 'k9lsALW9y8KBUAXQzVOeHkfjo9JzP3VMC5UO57Is', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'docwhereiosapp.herokuapp.com',  // Don't forget to change to https if needed
-  javascriptKey: process.env.JAVASCRIPT_KEY || '7bMusI2dAZ1hPJ8CzBdurpTOReWjk69vUXMZIW0w' //** add this line no need to set values, they will be overwritten by heroku config vars
+  javascriptKey: process.env.JAVASCRIPT_KEY || '7bMusI2dAZ1hPJ8CzBdurpTOReWjk69vUXMZIW0w'  //** add this line no need to set values, they will be overwritten by heroku config vars
   // restAPIKey: process.env.REST_API_KEY || 'lKd6H8xoc49vIOwOTbR0eNX7Tyl9YihUmtbCFUgk', //** add this line
   // dotNetKey: process.env.DOT_NET_KEY || 'Nfop797wXab3EIFAA51WwRwUV0mgYIN9m5SVJ8KL', //** add this line
   // clientKey: process.env.CLIENT_KEY || 'dGv1bVJTz0OIsP1BtFvVoZfFh1EMvUIJS7ohcMWx' //** add this line
