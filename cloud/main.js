@@ -14,10 +14,10 @@ Parse.Cloud.define('hello', function(req, res) {
 
 Parse.Cloud.define("queryGooglePlaceHospitals", function(request, response) {
     Parse.Cloud.httpRequest({
-        url: "https://maps.googleapis.com/maps/api/place/textsearch/json?query=hospital&key=AIzaSyAvgfUnUQzI7b3DeIT7hRLus28guaormrU",
+        url: "https://maps.googleapis.com/maps/api/place/textsearch/json?query=emergency+room+urgent+care&key=AIzaSyAvgfUnUQzI7b3DeIT7hRLus28guaormrU",
         success: function(httpResponse) {
             console.log(httpResponse.text);
-            response.success(httpResponse.text); // This will respond with the contents of the http response
+            response.success("Google places: " + httpResponse.text); // This will respond with the contents of the http response
         },
         error: function(httpResponse) {
             console.error('Request failed with response code ' + httpResponse.status);
@@ -31,7 +31,7 @@ Parse.Cloud.define("queryGovDataPlaces", function(request, response) {
         url: "https://data.medicare.gov/resource/yv7e-xc69.json?City=castro+valley&state=ca&measure_id=OP_20",
         success: function(httpResponse) {
             console.log(httpResponse.text);
-            response.success(httpResponse.text); // This will respond with the contents of the http response
+            response.success("Data.gov:" + httpResponse.text); // This will respond with the contents of the http response
         },
         error: function(httpResponse) {
             console.error('Request failed with response code ' + httpResponse.status);
