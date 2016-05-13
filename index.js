@@ -16,7 +16,7 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'oMVo1jEWRESQK5KOytehjyHsyIrVMP6DPt2IEhDv',
   masterKey: process.env.MASTER_KEY || 'k9lsALW9y8KBUAXQzVOeHkfjo9JzP3VMC5UO57Is', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'https://docwhereiosapp.herokuapp.com',  // Don't forget to change to https if needed
+  serverURL: process.env.SERVER_URL || 'http://docwhereiosapp.herokuapp.com',  // Don't forget to change to https if needed
   javascriptKey: process.env.JAVASCRIPT_KEY || '7bMusI2dAZ1hPJ8CzBdurpTOReWjk69vUXMZIW0w',  //** add this line no need to set values, they will be overwritten by heroku config vars
   // restAPIKey: process.env.REST_API_KEY || 'lKd6H8xoc49vIOwOTbR0eNX7Tyl9YihUmtbCFUgk', //** add this line
   // dotNetKey: process.env.DOT_NET_KEY || 'Nfop797wXab3EIFAA51WwRwUV0mgYIN9m5SVJ8KL', //** add this line
@@ -27,7 +27,7 @@ var api = new ParseServer({
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
 var app = express();
-app.use(cors()); 
+// app.use(cors()); 
 
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
