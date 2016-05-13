@@ -8,7 +8,7 @@
 // });
 
 Parse.Cloud.define('hello', function(req, res) {
-  res.success('Hi Igsaan. DocWhere is live :D');
+  res.success('Hello from DocWhere cloud code! ');
 });
 
 
