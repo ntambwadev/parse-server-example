@@ -50,21 +50,26 @@ var ParseRequest = {};
 
 ParseRequest.postData = function() {
   
-  XHR.setCallback(function(data){
-    // store objectID
-    Store.objectId = JSON.parse(data).objectId;
-    // close first step
-    Steps.closeStep('#step-1');
-    Steps.fillStepOutput('#step-1-output', data)
-    Steps.fillBtn('#step-1-btn', 'Posted');
-    // open second step
-    Steps.openStep('#step-2');
-    Steps.bindBtn('#step-2-btn', function(e){
-      ParseRequest.getData();
+    Steps.openStep('#step-3');
+    Steps.bindBtn('#step-3-btn', function(e){
+      ParseRequest.postCloudCodeData();
       e.preventDefault();
-    });
-  });
-  XHR.POST('/parse/classes/GameScore');
+    })
+  // XHR.setCallback(function(data){
+  //   // store objectID
+  //   Store.objectId = JSON.parse(data).objectId;
+  //   // close first step
+  //   Steps.closeStep('#step-1');
+  //   Steps.fillStepOutput('#step-1-output', data)
+  //   Steps.fillBtn('#step-1-btn', 'Posted');
+  //   // open second step
+  //   Steps.openStep('#step-2');
+  //   Steps.bindBtn('#step-2-btn', function(e){
+  //     ParseRequest.getData();
+  //     e.preventDefault();
+  //   });
+  // });
+  // XHR.POST('/parse/classes/GameScore');
 }
 
 ParseRequest.getData = function() {
@@ -92,7 +97,7 @@ ParseRequest.postCloudCodeData = function() {
     // open third step
     Steps.showWorkingMessage();
   });
-  XHR.POST('/parse/functions/hello');
+  XHR.POST('/parse/functions/queryGooglePlaceHospitals');
 }
 
 
