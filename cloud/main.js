@@ -28,7 +28,7 @@ Parse.Cloud.define("queryGooglePlaceHospitals", function(request, response) {
 
 Parse.Cloud.define("queryGovDataPlaces", function(request, response) {
     Parse.Cloud.httpRequest({
-        url: "https://data.medicare.gov/resource/yv7e-xc69.json?City=castro+valley&state=ca&measure_id=OP_20",
+        url: "https://data.medicare.gov/resource/yv7e-xc69?measure_id=OP_20",
         success: function(httpResponse) {
             console.log(httpResponse.text);
             response.success("Data.gov:" + httpResponse.text); // This will respond with the contents of the http response
