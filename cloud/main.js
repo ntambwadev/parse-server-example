@@ -9,7 +9,7 @@
 // });
 
 Parse.Cloud.define('hello', function(req, res) {
-  res.success('Hi');
+  res.success('Hi Igsaan. DocWhere is live :D');
 });
 
 
