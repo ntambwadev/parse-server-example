@@ -83,7 +83,7 @@ ParseRequest.postData = function() {
     // });
   });
   // XHR.POST('/parse/classes/GameScore');
-    XHR.POST('/parse/functions/queryGovDataPlaces');
+    XHR.POST('/parse/functions/saveGovDataPlacesToParse');
 }
 
 ParseRequest.getData = function() {
@@ -100,7 +100,7 @@ ParseRequest.getData = function() {
     // })
   });
   // XHR.GET('/parse/classes/GameScore');
-  XHR.POST('/parse/functions/queryGooglePlaceHospitals');
+  XHR.POST('/parse/functions/saveGooglePlacesToParse');
 }
 
 ParseRequest.postCloudCodeData = function() {
