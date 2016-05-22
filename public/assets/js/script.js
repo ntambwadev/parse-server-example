@@ -113,7 +113,7 @@ ParseRequest.postCloudCodeData = function() {
     Steps.showWorkingMessage();
   });
 
-  XHR.POST('/parse/functions/hello');
+  XHR.POST('/parse/functions/RemoveFacilities');
 }
 
 
