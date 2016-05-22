@@ -40,23 +40,28 @@ Parse.Cloud.define("saveGovDataPlacesToParse", function(request, response) {
                 parse_objects.push(dataGovPlace)
             }
             // return Parse.Promise.when(promises)
-            return parse_objects//Parse.Object.saveAll(parse_objects) 
+            return parse_objects//
+            // return Parse.Object.saveAll(parse_objects) 
 
       }).then(function(dataGovPlaces) {
 
         var facilities = []
+        var promises = []
+        console.log("dataGovPlaces count" + dataGovPlaces.length)
         for (var index in dataGovPlaces){  
 
             var dataGovPlace = dataGovPlaces[index]
             var facility = createFacility(dataGovPlace)
-            facilities.push(facility);
+            // facilities.push(facility);
+            promises.push(facility.save());
         }
 
-        return Parse.Object.saveAll(facilities) 
+        return Parse.Promise.when(promises)
+        // return Parse.Object.saveAll(facilities) 
         
       }).then(function (facilities) {
 
-            response.success(gov_data_places)
+            response.success("facilities")
 
       }, function(error) {
             // handle error
@@ -77,6 +82,10 @@ function createFacility(dataGovPlace){
     facility.set("placeID", dataGovPlace.get("provider_id"));
     facility.set("location", dataGovPlace.get("location"));
     facility.set("zip", dataGovPlace.get("zip_code"));
+
+    var DataGovPlace = Parse.Object.extend("DataGovPlace");
+    var dataGovPointer = new DataGovPlace();
+    dataGovPointer.id = dataGovPlace.id
     facility.set("dataGovPlace", dataGovPlace);
 
     return facility
@@ -386,3 +395,34 @@ Parse.Cloud.define("RemoveFacilities", function(request, response) {
       });
 
 });
+
+Parse.Cloud.define("bindFacilitiesToDataGov", function(request, response) {
+
+      var DataGovPlace = Parse.Object.extend("DataGovPlace");
+      var query = new Parse.Query(DataGovPlace);
+      // var activeSince = moment().subtract(1,"days").toDate();
+      query.greaterThan('createdAt', activeSince)
+      
+      query.find({ useMasterKey: true }).then(function(dataGovPlaces) {
+        console.log("dataGovPlaces count: " + dataGovPlaces.length)
+        // var promises = []
+        //     for (var index in facilities){   
+        //         var facility = facilities[index]
+        //         promises.push(facility.destroy());
+        //     }
+        // return Parse.Promise.when(promises)
+        return
+
+      }).then(function() {
+
+        console.log("Success RemoveFacilities")
+        response.success("facilities")
+
+      }, function(error) {
+            // handle error
+            console.log(error);
+            response.error(error)
+      });
+
+});
+
